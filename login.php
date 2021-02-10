@@ -23,7 +23,6 @@
 				$password = $results->password;
 				
 				if($id != ""){
-					echo "Successful login!";
 					session_start();
 					$_SESSION['user_id'] = $id;
 					$_SESSION['user_name'] = $username;
@@ -31,19 +30,20 @@
 					header('Location: dashboard.php');
 				
 				}else{
-					echo "<br> Login failed!";
+					echo "<script>alert('Login Failed')</script>";
 				}
 			}
 		?>
 		<center>
 		<br><br><br>
 	
-		<l>KEEP-IT-SIMPLE LOGIN </l>
+		KEEP-IT-SIMPLE LOGIN <br><br>
 		<form name="login" method="POST">
-			<x>USERNAME: <input type="text" name="username" placeholder="Username" id="uname" ><br></x>
-			<x>PASSWORD: <input type="password" name="pass" placeholder="Password" id="upass"><br>
-			<input type="submit" name="btnLogin" value="LOGIN">
-				</form>
+			USERNAME: <input type="text" name="username" id="uname" ><br>
+			PASSWORD: <input type="password" name="pass"  id="upass"><br><br>
+			<input type="submit" name="btnLogin" value="LOGIN"><br>
+		</form>
+			Don't Have an account? <a href="signup.php"> Sign up now! </a>
 		
 		
 	

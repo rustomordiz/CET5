@@ -43,9 +43,9 @@ if($_POST['register']){
 ?>
 <form name="new" method="POST">
 <table>
-<tr>Username:  <input type="text" name="uname"required><br>
-<tr>Password:  <input type="password" name="pass"required><br>
-<tr>Email:  <input type="email" name="mail"required><br>
+<tr>Username:  <input type="text" name="uname" placeholder="Enter your Username" required><br>
+<tr>Password:  <input type="password" name="pass" placeholder="Enter your Password"  required><br>
+<tr>Email:  <input type="email" name="mail" placeholder="Enter your Email" required><br>
 
 <input type="submit" name="register" value="Create Account"><br>
 </table></form>
