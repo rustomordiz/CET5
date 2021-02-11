@@ -11,7 +11,54 @@ h3 {
 	margin: 5px;
 		
 	}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropbtn2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
 
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 </style>
 
 <body>
@@ -21,14 +68,28 @@ h3 {
 <?php
 session_start();
 $user = $_SESSION['user_name'];
+$userid = $_SESSION['user_id'];
+
 echo"<h3> Welcome $user! </h3>";
 ?>
-
+</center>
 <br>
-<a href='insert.php'>ADD</a><br><br>
+
+	<!--ADD-->
+<button class="dropbtn2"><a href='insert.php'>ADD</a></button>
+
+	<!--ACCOUNT -->
+<div class="dropdown">
+  <button class="dropbtn">ACCOUNT</button>
+  <div class="dropdown-content">
+  	<?php echo "<a href='accountedit.php?accountid=$userid'>CHANGE ACCOUNT DETAILS</a>"; ?>
+	<a href='logout.php'>LOGOUT</a>
+  </div>
+</div>
+<center>
+	<!--LOGIN CREDENTIALS TABLE CONTENT -->
 <table border="10", width="800" , bgcolor="#B0C4DE">
 <tr>
-
 <?php
 $server = "localhost";
 $user ="root";
@@ -83,14 +144,22 @@ echo"<td>";
 echo"<center>";
 echo "<a href='$results->site_url'>$results->site_url.</a>";
 echo"</td>";
+
+echo"<td>";
+echo"<center>";
+echo "<a href='edit.php?userid=$results->id'>EDIT</a>";
+echo"</td>";
+
+echo"<td>";
+echo"<center>";
+echo "<a href='delete.php?userid=$results->id'>DELETE</a>";
+echo"</td>";
+
 echo"<tr>";
 }
 ?>
 </tr>
 </table>
-<?php
-	//LOGOUT
-	echo "<br><a href='logout.php'>LOGOUT</a>";
-?>
+</center>
 </body>
 </html>

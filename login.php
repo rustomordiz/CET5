@@ -43,6 +43,7 @@
 			PASSWORD: <input type="password" name="pass"  id="upass"><br><br>
 			<input type="submit" name="btnLogin" value="LOGIN"><br>
 		</form>
+			<a href="forgot.php"> Forgot Username / Password </a><br>
 			Don't Have an account? <a href="signup.php"> Sign up now! </a>
 		
 		
